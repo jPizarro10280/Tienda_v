@@ -1,0 +1,14 @@
+body {
+  background-color: aqua;
+}
+p {
+  background-color: blueviolet;
+}
+h1,
+header {
+  background-color: black;
+  color: aliceblue;
+}
+article header {
+  background-color: rgb(60, 151, 151);
+}
