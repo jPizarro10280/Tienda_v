@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--/cliente/busqueda
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Busqueda</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <a th:href="@{/}">Regresar</a>
+        <form th:action="@{/cliente/busqueda}" 
+                          method="get" 
+                          th:object="${cliente}"><!-- @{/cliente/guardar} tiene que ser igual al de ClienteController -->
+                        
+                        
+                        <fieldset>
+                            <label for="apellidos">Apellidos</label>
+                            <input type="text" name="apellidos" th:field="*{apellidos}">                               
+                        </fieldset>
+                        
+                        <hr/>
+                        <input type="submit" value="buscar" name="buscar">
+                    </form>
+    </body>
+</html>
