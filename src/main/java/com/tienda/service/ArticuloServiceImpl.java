@@ -18,18 +18,19 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class ArticuloServiceImpl implements ArticuloService {
     
-    @Autowired
+   @Autowired
     private ArticuloDao articuloDao;
 
     @Override
     @Transactional(readOnly = true)
-    public List<Articulo> getArticulos(boolean activos) {
-        var lista = (List<Articulo>)articuloDao.findAll();
+    public List<Articulo> getArticulo(boolean activos) {
+        var lista=(List<Articulo>) articuloDao.findAll();
         if(activos){
-            lista.removeIf(e -> !e.isActivo());//e es cada elemento de la lista, esto es una funcion lamda
+            lista.removeIf(e -> !e.isActivo());//e=todos los elementos de la lista ->=remover
         }
         return lista;
-    }
+        }
+    
 
     @Override
     @Transactional(readOnly = true)
@@ -48,5 +49,6 @@ public class ArticuloServiceImpl implements ArticuloService {
     public void delete(Articulo articulo) {
         articuloDao.delete(articulo);
     }
+
 
 }

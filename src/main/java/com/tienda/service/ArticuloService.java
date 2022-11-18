@@ -8,13 +8,12 @@ public interface ArticuloService {
     
     //metodos para hacer CRUD de articulo
     
-    public List<Articulo> getArticulos(boolean activos);// si es true que muestre solo las activas
+    public List<Articulo> getArticulo(boolean activos);
     
-    public Articulo getArticulo(Articulo articulo);
+    //Si son true me muestra todos los articulos que estan activos, si es false no los muestra
+    public Articulo getArticulo(Articulo articulo);//Read
     
-    public void save(Articulo articulo);
+    public void save(Articulo articulo);//Update
     
-    public void delete(Articulo articulo);
-    
-    
+    public void delete(Articulo articulo);//Delete
 }
