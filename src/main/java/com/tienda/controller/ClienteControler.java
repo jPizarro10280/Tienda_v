@@ -21,27 +21,30 @@ public class ClienteControler {
     @Autowired
     private ClienteService clienteService;
 
-
-    
     @GetMapping("/cliente/busqueda")
-    public String buscarApellido(Model model,@Param("apellidos")String apellidos) {
-              
-        var clientes=clienteService.buscarPorApellidos(apellidos);
+    public String buscarApellido(Model model, @Param("apellidos") String apellidos) {
+
+        var clientes = clienteService.buscarPorApellidos(apellidos);
         model.addAttribute("clientes", clientes);
-        
+
         return "/cliente/listado";
     }
-    
+
     @GetMapping("/cliente/buscar")
-    public String buscar(Cliente cliente){
+    public String buscar(Cliente cliente) {
         return "/cliente/busqueda";
     }
-    
 
     @GetMapping("/cliente/listado")
     public String listado(Model model) {
         var clientes = clienteService.getClientes();
-        //var clientes=clienteService.buscarPorNombre("Ana");
+        var limiteTotal = 0;
+        for (var c : clientes) {
+            limiteTotal += c.credito.limite;
+        }
+        model.addAttribute("limiteTotal", limiteTotal);
+        model.addAttribute("totalClientes", clientes.size());
+
         model.addAttribute("clientes", clientes);
         return "/cliente/listado";
     }

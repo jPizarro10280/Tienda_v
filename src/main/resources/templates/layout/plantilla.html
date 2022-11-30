@@ -71,6 +71,19 @@
                                 </form>
                             </li>
                         </ul>
+                        <ul class="navbar-nav ml-auto" sec:authorize="!isAuthenticated()">
+                            
+
+                            <li class="nav-item">
+                                <form method="POST" th:action="@{/login}">
+                                    <a href="#" onclick="this.parentNode.submit();"
+                                       class="nav-link">
+                                        <i class="fas fa-user-times"></i>
+                                        [[#{plantilla.login}]]
+                                    </a>
+                                </form>
+                            </li>
+                        </ul>
 
                     </div>
                 </nav>

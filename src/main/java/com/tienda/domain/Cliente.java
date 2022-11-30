@@ -26,7 +26,7 @@ public class Cliente implements Serializable{
     
     @JoinColumn(name="id_credito", referencedColumnName="id_credito")//relacion de cliente a credito
     @ManyToOne//relacion de bd muchos a uno
-    private Credito credito;
+    public Credito credito;
 
     public Cliente() {
     }
